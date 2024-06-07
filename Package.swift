@@ -27,14 +27,14 @@ let package = Package(
       name: "TokamakStaticHTMLDemo",
       targets: ["TokamakStaticHTMLDemo"]
     ),
-    .library(
+    /*.library(
       name: "TokamakGTK",
       targets: ["TokamakGTK"]
     ),
     .executable(
       name: "TokamakGTKDemo",
       targets: ["TokamakGTKDemo"]
-    ),
+    ),*/
     .library(
       name: "TokamakShim",
       targets: ["TokamakShim"]
@@ -84,10 +84,10 @@ let package = Package(
       name: "TokamakShim",
       dependencies: [
         .target(name: "TokamakDOM", condition: .when(platforms: [.wasi])),
-        .target(name: "TokamakGTK", condition: .when(platforms: [.linux])),
+        /*.target(name: "TokamakGTK", condition: .when(platforms: [.linux])),*/
       ]
     ),
-    .systemLibrary(
+    /*.systemLibrary(
       name: "CGTK",
       pkgConfig: "gtk+-3.0",
       providers: [
@@ -123,7 +123,7 @@ let package = Package(
       name: "TokamakGTKDemo",
       dependencies: ["TokamakGTK"],
       resources: [.copy("logo-header.png")]
-    ),
+    ),*/
     .target(
       name: "TokamakStaticHTML",
       dependencies: [

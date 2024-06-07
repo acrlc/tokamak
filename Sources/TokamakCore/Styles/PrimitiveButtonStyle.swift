@@ -51,6 +51,10 @@ public struct PlainButtonStyle: ButtonStyle {
   }
 }
 
+extension ButtonStyle where Self == PlainButtonStyle {
+  public static var plain: Self { Self() }
+}
+
 public struct BorderedButtonStyle: PrimitiveButtonStyle {
   public init() {}
 
@@ -80,6 +84,10 @@ public struct BorderlessButtonStyle: ButtonStyle {
   }
 }
 
+extension ButtonStyle where Self == BorderlessButtonStyle {
+  public static var borderless: Self { Self() }
+}
+
 public struct LinkButtonStyle: ButtonStyle {
   public init() {}
 
@@ -90,6 +98,10 @@ public struct LinkButtonStyle: ButtonStyle {
           .isPressed ? Color(red: 128 / 255, green: 192 / 255, blue: 240 / 255) : .blue
       )
   }
+}
+
+extension ButtonStyle where Self == LinkButtonStyle {
+  public static var link: Self { Self() }
 }
 
 struct AnyPrimitiveButtonStyle: PrimitiveButtonStyle {

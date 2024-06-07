@@ -33,7 +33,7 @@ public struct AppStorage<Value>: DynamicProperty {
   let store: (_StorageProvider, String, Value) -> ()
   let read: (_StorageProvider, String) -> Value?
 
-  var objectWillChange: AnyPublisher<(), Never> {
+  public var objectWillChange: AnyPublisher<(), Never> {
     unwrappedProvider.publisher.eraseToAnyPublisher()
   }
 

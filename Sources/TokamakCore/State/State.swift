@@ -14,12 +14,12 @@
 //
 //  Created by Max Desiatov on 08/04/2020.
 //
-protocol ValueStorage {
+public protocol ValueStorage {
   var getter: (() -> Any)? { get set }
   var anyInitialValue: Any { get }
 }
 
-protocol WritableValueStorage: ValueStorage {
+public protocol WritableValueStorage: ValueStorage {
   var setter: ((Any, Transaction) -> ())? { get set }
 }
 
@@ -27,10 +27,10 @@ protocol WritableValueStorage: ValueStorage {
 public struct State<Value>: DynamicProperty {
   private let initialValue: Value
 
-  var anyInitialValue: Any { initialValue }
+ public var anyInitialValue: Any { initialValue }
 
-  var getter: (() -> Any)?
-  var setter: ((Any, Transaction) -> ())?
+  public var getter: (() -> Any)?
+  public var setter: ((Any, Transaction) -> ())?
 
   public init(wrappedValue value: Value) {
     initialValue = value

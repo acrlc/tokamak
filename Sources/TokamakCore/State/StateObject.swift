@@ -19,7 +19,7 @@ public struct StateObject<ObjectType: ObservableObject>: DynamicProperty {
   public var wrappedValue: ObjectType { (getter?() as? ObservedObject.Wrapper)?.root ?? initial() }
 
   let initial: () -> ObjectType
-  var getter: (() -> Any)?
+  public var getter: (() -> Any)?
 
   public init(wrappedValue initial: @autoclosure @escaping () -> ObjectType) {
     self.initial = initial
@@ -31,13 +31,13 @@ public struct StateObject<ObjectType: ObservableObject>: DynamicProperty {
 }
 
 extension StateObject: ObservedProperty {
-  var objectWillChange: AnyPublisher<(), Never> {
+  public var objectWillChange: AnyPublisher<(), Never> {
     wrappedValue.objectWillChange.map { _ in }.eraseToAnyPublisher()
   }
 }
 
 extension StateObject: ValueStorage {
-  var anyInitialValue: Any {
+  public var anyInitialValue: Any {
     ObservedObject.Wrapper(root: initial())
   }
 }

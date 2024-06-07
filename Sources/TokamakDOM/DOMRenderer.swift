@@ -88,7 +88,7 @@ final class DOMRenderer: Renderer {
     rootRef = ref
     appendRootStyle(ref)
 
-    if #available(macOS 10.15, *) {
+    if #available(macOS 14, *) {
       JavaScriptEventLoop.installGlobalExecutor()
     }
 

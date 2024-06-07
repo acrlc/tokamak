@@ -98,7 +98,7 @@ public struct DOMFiberRenderer: FiberRenderer {
   }
 
   public init(_ rootSelector: String, useDynamicLayout: Bool = true) {
-    if #available(macOS 10.15, *) {
+    if #available(macOS 14, *) {
       JavaScriptEventLoop.installGlobalExecutor()
     }
 

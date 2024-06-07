@@ -54,7 +54,7 @@ public struct EnvironmentObject<ObjectType>: DynamicProperty
     return Wrapper(root: store)
   }
 
-  var objectWillChange: AnyPublisher<(), Never> {
+  public var objectWillChange: AnyPublisher<(), Never> {
     wrappedValue.objectWillChange.map { _ in }.eraseToAnyPublisher()
   }
 
